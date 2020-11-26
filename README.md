@@ -74,8 +74,8 @@ Parachute respawn is used in conjunction with the above respawn mechanics. Playe
 ### Configuration
 1. Follow the steps for **Configuration** in any of the above sections.
 2. In `Description.ext`:
-    * set the `parachuteRespawnATL` to the height above terrain level that players will respawn.
-    * set the `parachuteVehicle` value to desired parachute's vehicle type or leave the default `rhs_d6_Parachute` value.
+    * set the `ParachuteRespawn.aboveTerrainLevel` to the height above terrain level that players will respawn.
+    * set the `ParachuteRespawn.vehicleType` value to desired parachute's vehicle type or leave the default `rhs_d6_Parachute` value.
     * increase the `respawnDistanceMinimum` and `respawnDistanceMaximum` to suit your spawn location.
     * increasing these values will increase the radius players' potential spawn but allow for safer descent with more seperation.
 
