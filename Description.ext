@@ -1,0 +1,48 @@
+respawn = "BASE";
+respawnTemplates[] = { "BDRM_respawn" };
+
+class BDRMConfig {
+	respawnMarkerName = "bdrm_respawn";
+	sideRespawnMarkerName = "respawn_west";
+	loadoutVariableName = "bdrm_savedLoadout";
+	respawnDistanceMinimum = 1;
+	respawnDistanceMaximum = 10;
+
+	class EnterVehicleTypeRespawn {
+		active = 0;
+		vehicleType = "ace_spottingscopeobject";
+	};
+
+	class ParachuteRespawn {
+		aboveTerrainLevel = 0;
+		vehicleType = "rhs_d6_Parachute";
+	};
+}
+
+class CfgFunctions
+{
+	class BDRM
+	{
+		class functions
+		{
+			file = "bdrm\functions";
+			class savePlayerLoadout {};
+			class loadPlayerLoadout {};
+			class respawnPlayer {};
+			class getRespawnPosition {};
+			class setRespawnMarkerPosition {};
+			class diag_log {};
+		};
+	};
+};
+
+class CfgRespawnTemplates
+{
+	class BDRM_respawn
+	{
+		respawnOnStart = 0;
+		respawnButton = 1;
+		onPlayerKilled = "bdrm\scripts\onPlayerKilled.sqf";
+		onPlayerRespawn = "bdrm\scripts\onPlayerRespawn.sqf";
+	};
+};
