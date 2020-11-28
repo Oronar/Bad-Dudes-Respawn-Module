@@ -1,4 +1,4 @@
-# Bad Dudes Respawn Module
+# Bad Dudes Respawn Module v1.1.0
 
 The Bad Dudes Repsawn Module (BDRM) is a set of scripts for configuring respawn mechanics for missions of the Bad Dudes ARMA group.
 
@@ -61,9 +61,20 @@ An alternative configuration intended to be used with the ACE Spotting Scope. Wh
 1. Follow the steps for **Configuration** in **Basic Setup**
 2. In `Description.ext` set the `EnterVehicleTypeRespawn.active` value to `1`
 
+## ACE Tagging Respawn
+An alternative configuration that uses ACE spray cans to mark respawn positions. When the configured spray can is used to spray a `Bad Dudes Respawn` tag on the ground or object the respawn position will be relocated to the tag's position.
+
+### Mission Setup
+1. Follow the steps for **Mission Setup** in **Basic Setup**
+2. Add a red spray paint can at the starting location or to a player unit's inventory.
+
+### Configuration
+1. Follow the steps for **Configuration** in **Basic Setup**
+2. In `Description.ext` set the `ACETaggingRespawn.active` configuration value to `1`
+3. Optionally set the `ACE_Tags.BDRM_bad_dude_tag.requiredItem` configuration value to an alternative item. (e.g. `ACE_SpraypaintBlack`, `ACE_SpraypaintRed`, `ACE_SpraypaintGreen`, `ACE_SpraypaintBlue`). This item will need to be added to the mission in place of the red spray paint can.
+
 ## In Development
 * Flare Respawn
-* ACE Tagging Respawn
 
 ## Parachute Respawn
 Parachute respawn is used in conjunction with the above respawn mechanics. Players will respawn in the air above the respawn position with a deployed parachute.
@@ -89,6 +100,8 @@ Parachute respawn is used in conjunction with the above respawn mechanics. Playe
 * `EnterVehicleTypeRespawn.vehicleType` - vehicle type used for EnterVehicleTypeRespawn
 * `ParachuteRespawn.aboveTerrainLevel` - height above terrain level players will respawn
 * `ParachuteRespawn.vehicleType` - vehicle class used for player parachute if `aboveTerrainLevel` is greater than 0
+* `ACETaggingRespawn.active` - 1: enables ACETaggingRespawn, 0: disables;
+* `ACETaggingRespawn.respawnTexture` - texture file name of tag that will be used to mark respawn location
 
 # Configuration Notes
 1. If the ARMA respawn marker (e.g. `respawn_west`) is placed at an alternate location because the mission start is not a safe location then the BDRM respawn marker should be manually created in Eden and placed at the starting location.
