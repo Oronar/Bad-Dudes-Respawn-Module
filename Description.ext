@@ -17,6 +17,11 @@ class BDRMConfig {
 		aboveTerrainLevel = 0;
 		vehicleType = "rhs_d6_Parachute";
 	};
+
+	class ACETaggingRespawn {
+		active = 0;
+		respawnTexture = "bad_dudes_head.paa";
+	}
 }
 
 class CfgFunctions
@@ -45,4 +50,13 @@ class CfgRespawnTemplates
 		onPlayerKilled = "bdrm\scripts\onPlayerKilled.sqf";
 		onPlayerRespawn = "bdrm\scripts\onPlayerRespawn.sqf";
 	};
+};
+
+class ACE_Tags {
+    class BDRM_bad_dude_tag {
+        displayName = "Bad Dude Respawn";
+		requiredItem = "ACE_SpraypaintRed";
+        textures[] = { "bdrm\assets\bad_dudes_head.paa" };
+        icon = "bdrm\assets\bad_dudes_head.paa";
+    };
 };

@@ -10,7 +10,7 @@ _player addEventHandler ["GetInMan", {
 		if (typeOf _vehicle == _vehicleType) then {
 			_newPos = getPos _vehicle;
 			[getPos _vehicle] call BDRM_fnc_setRespawnMarkerPosition;
-			[format ["EnterVehicleTypeRespawn position update triggered", _newPos]] call BDRM_fnc_diag_log;
+			[format ["EnterVehicleTypeRespawn position update triggered"]] call BDRM_fnc_diag_log;
 		};
 	};
 }];
