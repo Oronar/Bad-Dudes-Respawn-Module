@@ -99,6 +99,7 @@ Parachute respawn is used in conjunction with the above respawn mechanics. Playe
 * `loadoutVariableName` - variable name used internally for saving loadouts
 * `respawnDistanceMinimum` - minimum distance to search for a safe position to respawn near current respawn position
 * `respawnDistanceMaximum` - maximum distance to search for a safe position to respawn near current respawn position
+* `showRespawnNotification` - 1: enables notifications of respawn position updates, 0: disables
 * `EnterVehicleTypeRespawn.active` - 1: enables EnterVehicleTypeRespawn, 0: disables
 * `EnterVehicleTypeRespawn.vehicleType` - vehicle type used for EnterVehicleTypeRespawn
 * `ParachuteRespawn.aboveTerrainLevel` - height above terrain level players will respawn
