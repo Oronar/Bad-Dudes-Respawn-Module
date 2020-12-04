@@ -36,16 +36,19 @@ An alternative configuration where players will respawn near the location of an 
 1. Follow the steps for **Configuration** in **Basic Setup**
   
 ## Object Action Respawn (aka Flag Respawn)  
-An alternative configuration where players respawn at the latest object activated by an action. Players interact with the object via an action to relocate the respawn position to their current position.
+An alternative configuration where players respawn at the latest object activated by an action. Players interact with the object via an action to relocate the respawn position to their current position. This respawn method is intended to be used with flag poles but can be used with any object.
 
 ### Mission Setup
 1. Follow the steps for **Mission Setup** in **Basic Setup**
 2. Add a distinguishable object, such as a flag, at each point that will be a respawn location in Eden.
-3. Edit each flag object and in the `init` field of each execute the below script.
-    * This script has two optional arguments for the name of the action and activation distance.
-    * `[this, "Claim Flag", 25]` are the default values
+3. Edit each flag object and in the `init` field of each execute the script show in the examples below.
+    * This script has three optional arguments for the name of the action and activation distance.
+    * `[this, "Claim Flag", 25, ""]` are the default values
+    * The last argument is a texture that the flag will be set to when activated. When omitted or set to `""` the flag texture will not change.
 
 ```[this] execVM "bdrm\scripts\helpers\addSetRespawnPositionAction.sqf";```
+
+```[this, "Capture the Flag", 25, "bdrm\assets\bad_dudes_head.paa"] execVM "bdrm\scripts\helpers\addSetRespawnPositionAction.sqf";```
 
 ### Configuration
 1. Follow the steps for **Configuration** in **Basic Setup**
