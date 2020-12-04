@@ -1,4 +1,4 @@
-# Bad Dudes Respawn Module v1.1.0
+# Bad Dudes Respawn Module
 
 The Bad Dudes Repsawn Module (BDRM) is a set of scripts for configuring respawn mechanics for missions of the Bad Dudes ARMA group.
 
