@@ -109,7 +109,7 @@ Parachute respawn is used in conjunction with the above respawn mechanics. Playe
 
 # Configuration Notes
 1. If the ARMA respawn marker (e.g. `respawn_west`) is placed at an alternate location because the mission start is not a safe location then the BDRM respawn marker should be manually created in Eden and placed at the starting location.
-    * The name of this marker is controlled by the `sideRespawnMarkerName` configuration value and is `bdrm_respawn` by default.
+    * The name of this marker is controlled by the `respawnMarkerName` configuration value and is `bdrm_respawn` by default.
 2. Using an object respawn setup will override the BDRM respawn marker. If the object is destroyed respawns will default to the marker location.
-3. If a BDRM respawn marker is not created manually in Eden then one will be created at the position of the marker indicated by `respawnMarkerName` at mission start.
+3. If a BDRM respawn marker is not created manually in Eden then one will be created at the position of the marker indicated by `sideRespawnMarkerName` at mission start.
 4. Object Respawn (aka Box Respawn) will continue to work even if the object is loaded into a vehicle.
