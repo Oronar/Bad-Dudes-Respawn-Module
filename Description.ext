@@ -23,7 +23,12 @@ class BDRMConfig {
 	class ACETaggingRespawn {
 		active = 0;
 		respawnTexture = "bad_dudes_head.paa";
-	}
+	};
+
+	class VehicleRespawn {
+		respawnMarkerName = "bdrm_respawn_vehicle";
+		respawnTime = 5;
+	};
 }
 
 class CfgFunctions

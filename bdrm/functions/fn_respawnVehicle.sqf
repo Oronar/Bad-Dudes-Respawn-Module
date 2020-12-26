@@ -44,7 +44,7 @@ _newVehicle setDir _respawnDirection;
 
 [_newVehicle, _initFunction] call BDRM_fnc_registerVehicleRespawn;
 
-[format ["(%1) Vehicle respawned.", _vehicleName]] call BDRM_fnc_diag_log;
+[format ["(%1) Vehicle respawned.", _vehicleType]] call BDRM_fnc_diag_log;
 
 _showRespawnNotification = getNumber(getMissionConfig "BDRMConfig" >> "showRespawnNotification");
 

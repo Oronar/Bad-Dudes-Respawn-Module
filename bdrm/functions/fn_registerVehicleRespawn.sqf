@@ -19,7 +19,9 @@ _killedEventHandler = {
 	[format ["(%1) Respawn registered vehicle killed.", typeOf _unit]] call BDRM_fnc_diag_log;
 
 	_unit spawn {
-		sleep 5; // Respawn time
+		_vehicleRespawnTimer = getNumber(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "respawnTime");
+		[format ["(%1) Vehicle respawn timer triggered, %2 seconds.", typeOf _this, _vehicleRespawnTimer]] call BDRM_fnc_diag_log;
+		sleep _vehicleRespawnTimer;
 		[_this] call BDRM_fnc_respawnVehicle;
 	};
 };
