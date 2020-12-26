@@ -20,6 +20,7 @@ _backpackCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_BACKPACK_CARG
 _initFunction = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_INIT_FUNCTION;
 
 _vehicleType = typeOf _originalVehicle;
+_vehicleName = getText (configFile >> "cfgVehicles" >> _vehicleType >> "displayName");
 _wreckInRespawnRange = _respawnPostion distance getPos _originalVehicle < _minimumWreckDistance;
 
 if (_deleteWrecks == 1 or _wreckInRespawnRange) then {
@@ -43,5 +44,5 @@ _newVehicle setDir _respawnDirection;
 
 [_newVehicle, _initFunction] call BDRM_fnc_registerVehicleRespawn;
 
-[format ["(%1) Vehicle respawned.", _vehicleType]] call BDRM_fnc_diag_log;
-["TaskSucceeded", ["","Vehicle Respawned Temp Msg"]] remoteExec ["BIS_fnc_showNotification", 0];
+[format ["(%1) Vehicle respawned.", _vehicleName]] call BDRM_fnc_diag_log;
+["BDRMVehicleRespawn", [_vehicleName]] remoteExec ["BIS_fnc_showNotification", 0];
