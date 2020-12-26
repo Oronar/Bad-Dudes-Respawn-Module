@@ -49,5 +49,5 @@ _newVehicle setDir _respawnDirection;
 _showRespawnNotification = getNumber(getMissionConfig "BDRMConfig" >> "showRespawnNotification");
 
 if ( _showRespawnNotification == 1) then {
-	["BDRMVehicleRespawn", [_vehicleName]] remoteExec ["BIS_fnc_showNotification", 0];
+	["BDRMVehicleRespawned", [_vehicleName]] remoteExec ["BIS_fnc_showNotification", 0];
 };

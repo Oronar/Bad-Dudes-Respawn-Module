@@ -54,6 +54,7 @@ class CfgFunctions
 			class setWeaponCargoGlobal {};
 			class setBackpackCargoGlobal {};
 			class getVehicleRespawnPosition {};
+			class setVehicleRespawnMarkerPosition {};
 		};
 	};
 };
@@ -89,6 +90,15 @@ class CfgNotifications {
 	};
 
 	class BDRMVehicleRespawn {
+		title = "BDRM Respawn";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
+		description = "Vehicle Respawn Position Updated";
+		color[] = { 1, 1, 1, 1};
+		duration = 5;
+		priority = 0;
+	};
+
+	class BDRMVehicleRespawned {
 		title = "BDRM Vehicle Respawn";
 		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa";
 		description = "%1 respawned";
