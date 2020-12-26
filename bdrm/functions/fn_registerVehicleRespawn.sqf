@@ -27,9 +27,6 @@ _killedEventHandler = {
 	[format ["(%1) Respawn registered vehicle killed.", typeOf _unit]] call BDRM_fnc_diag_log;
 
 	_unit spawn {
-		_vehicleRespawnTimer = getNumber(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "respawnTime");
-		[format ["(%1) Vehicle respawn timer triggered, %2 seconds.", typeOf _this, _vehicleRespawnTimer]] call BDRM_fnc_diag_log;
-		sleep _vehicleRespawnTimer;
 		[_this] call BDRM_fnc_respawnVehicle;
 	};
 };
@@ -43,7 +40,27 @@ _getInEventHandler = {
 	[format ["(%1) Vehicle respawn invulnerability removed.", typeOf _vehicle]] call BDRM_fnc_diag_log;
 };
 
+_addAbandonAction = {
+	params ["_vehicle"];
+
+	_abandonVehicle = {
+		params ["_target", "_player", "_params"];
+
+		if(count crew _target == 0) then {
+			_target allowDamage true;
+			_target setVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, false];
+			_target setDamage [1, false];
+		};
+	};
+
+	_interactMenu = ["Abandon", "Abandon", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+	_interactionAction = ["AbandonVehicle", "Abandon Vehicle", "", _abandonVehicle, {true}] call ace_interact_menu_fnc_createAction;
+	[_vehicle, 0, ["ACE_MainActions"], _interactMenu] call ace_interact_menu_fnc_addActionToObject;
+	[_vehicle, 0, ["ACE_MainActions", "Abandon"], _interactionAction] call ace_interact_menu_fnc_addActionToObject;
+};
+
 _vehicle addEventHandler ["Killed", _killedEventHandler];
 _vehicle addEventHandler ["GetIn", _getInEventHandler];
+_vehicle call _addAbandonAction;
 
 [format ["(%1) Vehicle registered for respawn.", typeOf _vehicle]] call BDRM_fnc_diag_log;

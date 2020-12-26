@@ -12,6 +12,10 @@ if (_isRegistered == 0) exitWith {
 	 [format ["(%1) Unable to respawn vehicle, vehicle not registered for respawn", _vehicleType]] call BDRM_fnc_diag_log;
 };
 
+_vehicleRespawnTimer = getNumber(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "respawnTime");
+[format ["(%1) Vehicle respawn timer triggered, %2 seconds.", _vehicleType, _vehicleRespawnTimer]] call BDRM_fnc_diag_log;
+sleep _vehicleRespawnTimer;
+
 _respawnPostion = [_originalVehicle] call BDRM_fnc_getVehicleRespawnPosition;
 _respawnDirection = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_STARTING_DIRECTION;
 _itemCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_ITEM_CARGO;
