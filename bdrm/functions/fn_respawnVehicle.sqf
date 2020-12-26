@@ -6,9 +6,10 @@ _minimumWreckDistance = 100;
 _deleteWrecks = 0;
 
 _isRegistered = _originalVehicle getVariable [BDRM_VEHICLE_RESPAWN_IS_REGISTERED, 0];
+_vehicleType = typeOf _originalVehicle;
 
 if (_isRegistered == 0) exitWith {
-	 [format ["(%1) Unable to respawn vehicle, vehicle not registered for respawn", typeOf _originalVehicle]] call BDRM_fnc_diag_log;
+	 [format ["(%1) Unable to respawn vehicle, vehicle not registered for respawn", _vehicleType]] call BDRM_fnc_diag_log;
 };
 
 _respawnPostion = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_STARTING_POSITION;
@@ -19,7 +20,6 @@ _weaponCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_WEAPON_CARGO;
 _backpackCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO;
 _initFunction = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_INIT_FUNCTION;
 
-_vehicleType = typeOf _originalVehicle;
 _vehicleName = getText (configFile >> "cfgVehicles" >> _vehicleType >> "displayName");
 _wreckInRespawnRange = _respawnPostion distance getPos _originalVehicle < _minimumWreckDistance;
 
@@ -45,4 +45,9 @@ _newVehicle setDir _respawnDirection;
 [_newVehicle, _initFunction] call BDRM_fnc_registerVehicleRespawn;
 
 [format ["(%1) Vehicle respawned.", _vehicleName]] call BDRM_fnc_diag_log;
-["BDRMVehicleRespawn", [_vehicleName]] remoteExec ["BIS_fnc_showNotification", 0];
+
+_showRespawnNotification = getNumber(getMissionConfig "BDRMConfig" >> "showRespawnNotification");
+
+if ( _showRespawnNotification == 1) then {
+	["BDRMVehicleRespawn", [_vehicleName]] remoteExec ["BIS_fnc_showNotification", 0];
+};
