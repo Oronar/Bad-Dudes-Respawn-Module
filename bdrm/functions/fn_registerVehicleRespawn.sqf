@@ -10,6 +10,7 @@ _vehicle setVariable [BDRM_VEHICLE_RESPAWN_MAGAZINE_CARGO, getMagazineCargo _veh
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_WEAPON_CARGO, getWeaponCargo _vehicle];
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO, getBackpackCargo _vehicle];
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_INIT_FUNCTION, _initFunction];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, true];
 
 _vehicle call _initFunction;
 
@@ -37,6 +38,7 @@ _getInEventHandler = {
 	params ["_vehicle", "_role", "_unit", "_turret"];
 
 	_vehicle allowDamage true;
+	_vehicle setVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, false];
 
 	[format ["(%1) Vehicle respawn invulnerability removed.", typeOf _vehicle]] call BDRM_fnc_diag_log;
 };

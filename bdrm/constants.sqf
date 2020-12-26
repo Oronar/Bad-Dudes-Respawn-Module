@@ -6,3 +6,4 @@
 #define BDRM_VEHICLE_RESPAWN_WEAPON_CARGO "bdrm_weaponCargo"
 #define BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO "bdrm_backpackCargo"
 #define BDRM_VEHICLE_RESPAWN_INIT_FUNCTION "bdrm_initFunction"
+#define BDRM_VEHICLE_RESPAWN_UNMOVED "bdrm_unmoved"
