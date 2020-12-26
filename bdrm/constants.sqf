@@ -1,0 +1,8 @@
+#define BDRM_VEHICLE_RESPAWN_IS_REGISTERED "bdrm_isRegistered"
+#define BDRM_VEHICLE_RESPAWN_STARTING_POSITION "bdrm_startingPostion"
+#define BDRM_VEHICLE_RESPAWN_STARTING_DIRECTION "bdrm_startingDirection"
+#define BDRM_VEHICLE_RESPAWN_ITEM_CARGO "bdrm_itemCargo"
+#define BDRM_VEHICLE_RESPAWN_MAGAZINE_CARGO "bdrm_magazineCargo"
+#define BDRM_VEHICLE_RESPAWN_WEAPON_CARGO "bdrm_weaponCargo"
+#define BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO "bdrm_backpackCargo"
+#define BDRM_VEHICLE_RESPAWN_INIT_FUNCTION "bdrm_initFunction"

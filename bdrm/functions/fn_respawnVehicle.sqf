@@ -1,21 +1,23 @@
+#include "..\constants.sqf";
+
 params ["_originalVehicle"];
 
 _minimumWreckDistance = 100;
 _deleteWrecks = 0;
 
-_isRegistered = _originalVehicle getVariable ["isRegistered", 0];
+_isRegistered = _originalVehicle getVariable [BDRM_VEHICLE_RESPAWN_IS_REGISTERED, 0];
 
 if (_isRegistered == 0) exitWith {
 	 [format ["(%1) Unable to respawn vehicle, vehicle not registered for respawn", typeOf _originalVehicle]] call BDRM_fnc_diag_log;
 };
 
-_respawnPostion = _originalVehicle getVariable "startingPostion";
-_respawnDirection = _originalVehicle getVariable "startingDirection";
-_itemCargo = _originalVehicle getVariable "itemCargo";
-_magazineCargo = _originalVehicle getVariable "magazineCargo";
-_weaponCargo = _originalVehicle getVariable "weaponCargo";
-_backpackCargo = _originalVehicle getVariable "backpackCargo";
-_initFunction = _originalVehicle getVariable "initFunction";
+_respawnPostion = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_STARTING_POSITION;
+_respawnDirection = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_STARTING_DIRECTION;
+_itemCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_ITEM_CARGO;
+_magazineCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_MAGAZINE_CARGO;
+_weaponCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_WEAPON_CARGO;
+_backpackCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO;
+_initFunction = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_INIT_FUNCTION;
 
 _vehicleType = typeOf _originalVehicle;
 _wreckInRespawnRange = _respawnPostion distance getPos _originalVehicle < _minimumWreckDistance;

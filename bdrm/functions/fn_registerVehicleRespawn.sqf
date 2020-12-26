@@ -1,13 +1,15 @@
+#include "..\constants.sqf";
+
 params ["_vehicle", ["_initFunction", {}]];
 
-_vehicle setVariable ["isRegistered", 1];
-_vehicle setVariable ["startingPostion", getPos _vehicle];
-_vehicle setVariable ["startingDirection", direction _vehicle];
-_vehicle setVariable ["itemCargo", getItemCargo _vehicle];
-_vehicle setVariable ["magazineCargo", getMagazineCargo _vehicle];
-_vehicle setVariable ["weaponCargo", getWeaponCargo _vehicle];
-_vehicle setVariable ["backpackCargo", getBackpackCargo _vehicle];
-_vehicle setVariable ["initFunction", _initFunction];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_IS_REGISTERED, 1];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_STARTING_POSITION, getPos _vehicle];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_STARTING_DIRECTION, direction _vehicle];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_ITEM_CARGO, getItemCargo _vehicle];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_MAGAZINE_CARGO, getMagazineCargo _vehicle];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_WEAPON_CARGO, getWeaponCargo _vehicle];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO, getBackpackCargo _vehicle];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_INIT_FUNCTION, _initFunction];
 
 _vehicle call _initFunction;
 
