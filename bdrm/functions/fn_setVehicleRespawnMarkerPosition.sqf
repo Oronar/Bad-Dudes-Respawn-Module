@@ -20,7 +20,9 @@ if(_respawnOnMarkerPositionUpdate == 1) then {
 
 		if(_isRegisterdAndUnmoved) then {
 			[format ["(%1) Respawn vehicle due to marker position update", _respawnMarkerName]] call BDRM_fnc_diag_log;
-			[_x] call BDRM_fnc_respawnVehicle;
+			_x spawn {
+				[_this, true] call BDRM_fnc_respawnVehicle;
+			};
 		};
 	} foreach vehicles;
 };

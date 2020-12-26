@@ -1,9 +1,6 @@
 #include "..\constants.sqf";
 
-params ["_originalVehicle"];
-
-_minimumWreckDistance = 100;
-_deleteWrecks = 0;
+params ["_originalVehicle", ["_forceWreckDeletion", false]];
 
 _isRegistered = _originalVehicle getVariable [BDRM_VEHICLE_RESPAWN_IS_REGISTERED, 0];
 _vehicleType = typeOf _originalVehicle;
@@ -25,9 +22,10 @@ _backpackCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_BACKPACK_CARG
 _initFunction = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_INIT_FUNCTION;
 
 _vehicleName = getText (configFile >> "cfgVehicles" >> _vehicleType >> "displayName");
-_wreckInRespawnRange = _respawnPostion distance getPos _originalVehicle < _minimumWreckDistance;
+_deleteWrecks = getNumber(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "deleteWrecks");
+_wreckInRespawnRange = _respawnPostion distance getPos _originalVehicle < BDRM_VEHICLE_RESPAWN_MIN_WRECK_DISTANCE;
 
-if (_deleteWrecks == 1 or _wreckInRespawnRange) then {
+if (_deleteWrecks == 1 or _wreckInRespawnRange or _forceWreckDeletion) then {
 	[format ["(%1) Removing respawn vehicle wreckage.", _vehicleType]] call BDRM_fnc_diag_log;
 	deleteVehicle _originalVehicle;
 };

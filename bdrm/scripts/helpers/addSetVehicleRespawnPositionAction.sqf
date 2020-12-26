@@ -10,6 +10,8 @@ setMarkerPosition = {
 	if (_flagTexture != "") then {
 		_target forceFlagTexture _flagTexture;
 	};
+
+	_target removeAction _actionId;
 };
 
 _eventArguments = [_position, _flagTexture];
