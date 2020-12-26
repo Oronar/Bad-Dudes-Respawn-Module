@@ -13,6 +13,13 @@ _vehicle setVariable [BDRM_VEHICLE_RESPAWN_INIT_FUNCTION, _initFunction];
 
 _vehicle call _initFunction;
 
+_invulnerabilitySafety = getNumber(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "invulnerabilitySafety");
+
+if(_invulnerabilitySafety == 1) then {
+	[format ["(%1) Vehicle respawn invulnerability set.", typeOf _vehicle]] call BDRM_fnc_diag_log;
+	_vehicle allowDamage false;
+};
+
 _killedEventHandler = {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 
@@ -26,6 +33,15 @@ _killedEventHandler = {
 	};
 };
 
+_getInEventHandler = {
+	params ["_vehicle", "_role", "_unit", "_turret"];
+
+	_vehicle allowDamage true;
+
+	[format ["(%1) Vehicle respawn invulnerability removed.", typeOf _vehicle]] call BDRM_fnc_diag_log;
+};
+
 _vehicle addEventHandler ["Killed", _killedEventHandler];
+_vehicle addEventHandler ["GetIn", _getInEventHandler];
 
 [format ["(%1) Vehicle registered for respawn.", typeOf _vehicle]] call BDRM_fnc_diag_log;

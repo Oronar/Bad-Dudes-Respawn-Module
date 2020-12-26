@@ -28,11 +28,6 @@ if (_deleteWrecks == 1 or _wreckInRespawnRange) then {
 	deleteVehicle _originalVehicle;
 };
 
-if (_wreckInRespawnRange) then {
-	sleep 5; // Add an additional 5 seconds to avoid secondary explosions
-	// TODO: Replace with invulnerability?
-};
-
 _newVehicle = createVehicle [_vehicleType, _respawnPostion];
 _newVehicle setPos _respawnPostion;
 _newVehicle setDir _respawnDirection;

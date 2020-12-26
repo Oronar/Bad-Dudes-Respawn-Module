@@ -29,6 +29,7 @@ class BDRMConfig {
 		respawnMarkerName = "bdrm_respawn_vehicle";
 		respawnTime = 5;
 		markerActive = 0;
+		invulnerabilitySafety = 1;
 		respawnDistanceMinimum = 1;
 		respawnDistanceMaximum = 25;
 	};
