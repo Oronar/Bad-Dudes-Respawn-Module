@@ -16,13 +16,11 @@ _respawnOnMarkerPositionUpdate = getNumber(getMissionConfig "BDRMConfig" >> "Veh
 
 if(_respawnOnMarkerPositionUpdate == 1) then {
 	{
-		_isRegisterdAndUnmoved = _x getVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, false];
+		_isUntouched = _x getVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, false] && alive _x;
 
-		if(_isRegisterdAndUnmoved) then {
+		if(_isUntouched) then {
 			[format ["(%1) Respawn vehicle due to marker position update", _respawnMarkerName]] call BDRM_fnc_diag_log;
-			_x spawn {
-				[_this, true] call BDRM_fnc_respawnVehicle;
-			};
+			[_x, true] remoteExec ["BDRM_fnc_respawnVehicle", 2];
 		};
 	} foreach vehicles;
 };

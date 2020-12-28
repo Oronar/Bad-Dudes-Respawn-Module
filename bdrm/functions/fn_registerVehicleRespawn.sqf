@@ -25,10 +25,7 @@ _killedEventHandler = {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 
 	[format ["(%1) Respawn registered vehicle killed.", typeOf _unit]] call BDRM_fnc_diag_log;
-
-	_unit spawn {
-		[_this] call BDRM_fnc_respawnVehicle;
-	};
+	[_unit] remoteExec ["BDRM_fnc_respawnVehicle", 2];
 };
 
 _getInEventHandler = {
@@ -47,6 +44,10 @@ _addAbandonAction = {
 		params ["_target", "_player", "_params"];
 
 		if(count crew _target == 0) then {
+			clearItemCargoGlobal _target;
+			clearWeaponCargoGlobal _target;
+			clearMagazineCargoGlobal _target;
+			clearBackpackCargoGlobal _target;
 			_target allowDamage true;
 			_target setVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, false];
 			_target setDamage [1, false];

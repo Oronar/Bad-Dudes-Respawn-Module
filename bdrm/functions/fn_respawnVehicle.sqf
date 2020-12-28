@@ -2,6 +2,8 @@
 
 params ["_originalVehicle", ["_forceWreckDeletion", false]];
 
+if(!isServer) exitWith {};
+
 _isRegistered = _originalVehicle getVariable [BDRM_VEHICLE_RESPAWN_IS_REGISTERED, 0];
 _vehicleType = typeOf _originalVehicle;
 
@@ -39,7 +41,7 @@ _newVehicle setDir _respawnDirection;
 [_magazineCargo, _newVehicle] call BDRM_fnc_setMagazineCargoGlobal;
 [_backpackCargo, _newVehicle] call BDRM_fnc_setBackpackCargoGlobal;
 
-[_newVehicle, _initFunction] call BDRM_fnc_registerVehicleRespawn;
+[_newVehicle, _initFunction] remoteExec ["BDRM_fnc_registerVehicleRespawn", 0, true];
 
 [format ["(%1) Vehicle respawned.", _vehicleType]] call BDRM_fnc_diag_log;
 
