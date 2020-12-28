@@ -1,6 +1,6 @@
 #include "..\constants.sqf";
 
-params ["_originalVehicle", ["_forceWreckDeletion", false]];
+params ["_originalVehicle", ["_forceWreckDeletion", false], ["_suppressNotifications", false]];
 
 if(!isServer) exitWith {};
 
@@ -47,6 +47,6 @@ _newVehicle setDir _respawnDirection;
 
 _showRespawnNotification = getNumber(getMissionConfig "BDRMConfig" >> "showRespawnNotification");
 
-if ( _showRespawnNotification == 1) then {
+if ( _showRespawnNotification == 1 && !_suppressNotifications) then {
 	["BDRMVehicleRespawned", [_vehicleName]] remoteExec ["BIS_fnc_showNotification", 0];
 };
