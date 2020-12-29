@@ -10,7 +10,7 @@ if (_useMarker == 0) exitWith {
 
 _respawnMarkerName = getText(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "respawnMarkerName");
 
-if(getMarkerType _respawnMarkerName == "") exitWith {
+if (getMarkerType _respawnMarkerName == "") exitWith {
 	[format ["BDRM vehicle respawn marker %1 not found.", _respawnMarkerName]] call BDRM_fnc_diag_log;
 	getPos _vehicle;
 };

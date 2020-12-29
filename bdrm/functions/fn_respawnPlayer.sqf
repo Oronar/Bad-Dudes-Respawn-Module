@@ -8,7 +8,7 @@ _pos = call BDRM_fnc_getRespawnPosition;
 _pos = [_pos, _minimumDistance, _maximumDistance] call BIS_fnc_findSafePos;
 
 
-if(_aboveTerrainLevel == 0) then {
+if (_aboveTerrainLevel == 0) then {
 	_player setPos _pos;
 } else {
 	_parachuteVehicleType = getText(getMissionConfig "BDRMConfig" >> "ParachuteRespawn" >> "vehicleType");

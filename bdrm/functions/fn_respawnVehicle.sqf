@@ -2,7 +2,7 @@
 
 params ["_originalVehicle", ["_forceWreckDeletion", false], ["_suppressNotifications", false]];
 
-if(!isServer) exitWith {};
+if (!isServer) exitWith {};
 
 _isRegistered = _originalVehicle getVariable [BDRM_VEHICLE_RESPAWN_IS_REGISTERED, 0];
 _vehicleType = typeOf _originalVehicle;
@@ -52,6 +52,6 @@ _newVehicle setDir _respawnDirection;
 
 _showRespawnNotification = getNumber(getMissionConfig "BDRMConfig" >> "showRespawnNotification");
 
-if ( _showRespawnNotification == 1 && !_suppressNotifications) then {
+if (_showRespawnNotification == 1 && !_suppressNotifications) then {
 	["BDRMVehicleRespawned", [_vehicleName]] remoteExec ["BIS_fnc_showNotification", 0];
 };

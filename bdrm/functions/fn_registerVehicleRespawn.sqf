@@ -18,7 +18,7 @@ _vehicle call _initFunction;
 
 _invulnerabilitySafety = getNumber(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "invulnerabilitySafety");
 
-if(_invulnerabilitySafety == 1) then {
+if (_invulnerabilitySafety == 1) then {
 	[format ["(%1) Vehicle respawn invulnerability set.", typeOf _vehicle]] call BDRM_fnc_diag_log;
 	_vehicle allowDamage false;
 };
@@ -45,7 +45,7 @@ _addAbandonAction = {
 	_abandonVehicle = {
 		params ["_target", "_player", "_params"];
 
-		if(count crew _target == 0) then {
+		if (count crew _target == 0) then {
 			clearItemCargoGlobal _target;
 			clearWeaponCargoGlobal _target;
 			clearMagazineCargoGlobal _target;

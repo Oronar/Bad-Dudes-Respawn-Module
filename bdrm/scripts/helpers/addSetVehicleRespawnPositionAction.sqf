@@ -8,7 +8,7 @@ setMarkerPosition = {
 
 	_respawnMarkerName = getText(getMissionConfig "BDRMConfig" >> "VehicleRespawn" >> "respawnMarkerName");
 
-	if(_position distance getMarkerPos _respawnMarkerName < BDRM_RESPAWN_SET_POSITION_MIN_DELTA) exitWith {
+	if (_position distance getMarkerPos _respawnMarkerName < BDRM_RESPAWN_SET_POSITION_MIN_DELTA) exitWith {
 		["ObjectActionVehicleRespawn position update aborted due to minimum distance delta."] call BDRM_fnc_diag_log;
 	};
 
