@@ -50,6 +50,7 @@ _addAbandonAction = {
 			clearWeaponCargoGlobal _target;
 			clearMagazineCargoGlobal _target;
 			clearBackpackCargoGlobal _target;
+			_target setVehicleAmmo 0;
 			_target allowDamage true;
 			_target setVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, false];
 			_target setDamage [1, false];
