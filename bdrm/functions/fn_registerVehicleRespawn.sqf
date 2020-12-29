@@ -9,6 +9,8 @@ _vehicle setVariable [BDRM_VEHICLE_RESPAWN_ITEM_CARGO, getItemCargo _vehicle];
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_MAGAZINE_CARGO, getMagazineCargo _vehicle];
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_WEAPON_CARGO, getWeaponCargo _vehicle];
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO, getBackpackCargo _vehicle];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_ANIMATION_STATE, [_vehicle] call BDRM_fnc_getAnimationState];
+_vehicle setVariable [BDRM_VEHICLE_RESPAWN_TEXTURES, getObjectTextures _vehicle];
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_INIT_FUNCTION, _initFunction];
 _vehicle setVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, true];
 

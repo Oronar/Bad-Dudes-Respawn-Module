@@ -21,6 +21,8 @@ _itemCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_ITEM_CARGO;
 _magazineCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_MAGAZINE_CARGO;
 _weaponCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_WEAPON_CARGO;
 _backpackCargo = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO;
+_animationState = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_ANIMATION_STATE;
+_textures = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_TEXTURES;
 _initFunction = _originalVehicle getVariable BDRM_VEHICLE_RESPAWN_INIT_FUNCTION;
 
 _vehicleName = getText (configFile >> "cfgVehicles" >> _vehicleType >> "displayName");
@@ -40,6 +42,9 @@ _newVehicle setDir _respawnDirection;
 [_weaponCargo, _newVehicle] call BDRM_fnc_setWeaponCargoGlobal;
 [_magazineCargo, _newVehicle] call BDRM_fnc_setMagazineCargoGlobal;
 [_backpackCargo, _newVehicle] call BDRM_fnc_setBackpackCargoGlobal;
+
+[_newVehicle, _animationState] call BDRM_fnc_setAnimationState;
+[_newVehicle, _textures] remoteExec ["BDRM_fnc_setObjectTextures", 0, true];
 
 [_newVehicle, _initFunction] remoteExec ["BDRM_fnc_registerVehicleRespawn", 0, true];
 

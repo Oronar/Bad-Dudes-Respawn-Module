@@ -22,7 +22,7 @@ if(_respawnOnMarkerPositionUpdate == 1) then {
 			[format ["(%1) Respawn vehicle due to marker position update", _respawnMarkerName]] call BDRM_fnc_diag_log;
 			[_x, true, true] remoteExec ["BDRM_fnc_respawnVehicle", 2];
 		};
-	} foreach vehicles;
+	} forEach vehicles;
 };
 
 _showRespawnNotification = getNumber(getMissionConfig "BDRMConfig" >> "showRespawnNotification");

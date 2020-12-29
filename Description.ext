@@ -58,6 +58,9 @@ class CfgFunctions
 			class setBackpackCargoGlobal {};
 			class getVehicleRespawnPosition {};
 			class setVehicleRespawnMarkerPosition {};
+			class getAnimationState {};
+			class setAnimationState {};
+			class setObjectTextures {};
 		};
 	};
 };
