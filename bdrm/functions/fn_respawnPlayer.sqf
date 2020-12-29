@@ -16,4 +16,3 @@ if(_aboveTerrainLevel == 0) then {
 	[_chute, _aboveTerrainLevel, _pos, "ATL"] call BIS_fnc_setHeight;
 	_player moveInAny _chute;
 }
-
