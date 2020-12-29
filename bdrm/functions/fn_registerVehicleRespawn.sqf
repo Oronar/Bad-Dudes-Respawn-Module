@@ -47,13 +47,9 @@ _addAbandonAction = {
 		params ["_target", "_player", "_params"];
 
 		if (count crew _target == 0) then {
-			clearItemCargoGlobal _target;
-			clearWeaponCargoGlobal _target;
-			clearMagazineCargoGlobal _target;
-			clearBackpackCargoGlobal _target;
-			_target setVehicleAmmo 0;
-			_target allowDamage true;
+			_target setVariable ["ace_cookoff_enableAmmoCookoff", false, true];
 			_target setVariable [BDRM_VEHICLE_RESPAWN_UNMOVED, false];
+			_target allowDamage true;
 			_target setDamage [1, false];
 		};
 	};
