@@ -9,6 +9,7 @@
 #define BDRM_VEHICLE_RESPAWN_BACKPACK_CARGO "bdrm_backpackCargo"
 #define BDRM_VEHICLE_RESPAWN_ANIMATION_STATE "bdrm_animationState"
 #define BDRM_VEHICLE_RESPAWN_TEXTURES "bdrm_textures"
+#define BDRM_VEHICLE_RESPAWN_PYLONS "bdrm_pylons"
 #define BDRM_VEHICLE_RESPAWN_INIT_FUNCTION "bdrm_initFunction"
 #define BDRM_VEHICLE_RESPAWN_UNMOVED "bdrm_unmoved"
 #define BDRM_VEHICLE_RESPAWN_MIN_WRECK_DISTANCE 100

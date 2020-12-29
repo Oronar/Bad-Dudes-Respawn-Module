@@ -61,6 +61,7 @@ class CfgFunctions
 			class getAnimationState {};
 			class setAnimationState {};
 			class setObjectTextures {};
+			class setPylonState {};
 		};
 	};
 };
